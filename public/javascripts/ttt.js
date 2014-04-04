@@ -1,5 +1,3 @@
-var _  = require('./underscore');
-
 (function(root) {
   
   var TTT = root.TTT = ( root.TTT || {} );
