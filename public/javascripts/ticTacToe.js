@@ -1,5 +1,3 @@
-// NB: This doesn't include any AI.
-
 (function (root) {
   var TTT = root.TTT = (root.TTT || {});
 

@@ -1,4 +1,7 @@
 
+.centered {
+  text-align: center;
+}
 dy, ul, li, h1 {
   margin: 0;
   padding: 0;
@@ -89,6 +92,6 @@ li:hover {
 
 .winner-x > .x,
 .winner-o > .o {
-  background: green;
+  background: blue;
   color: white;
 }
