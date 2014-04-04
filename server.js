@@ -13,7 +13,8 @@ server.on('request', function(req, res){
     file.serve(req, res);
   }).resume();
 });
-server.listen(8080);
+var port = Number(process.env.PORT || 5000);
+server.listen(port);
 
 socketIOListen(server);
 

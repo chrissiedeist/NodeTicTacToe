@@ -91,9 +91,6 @@
   };
 
   Game.prototype.valid = function (pos) {
-    // Check to see if the co-ords are on the board and the spot is
-    // empty.
-
     function isInRange (pos) {
       return (0 <= pos) && (pos < 3);
     }

@@ -52,9 +52,7 @@
           $('#player').html("It's a tie!");
         }
       }
-    } else {
-      //alert('Invalid move! Try again.');
-    }
+    } 
   };
 
   UI.prototype.play = function () {

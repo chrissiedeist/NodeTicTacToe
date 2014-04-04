@@ -48,20 +48,12 @@ li {
   cursor: pointer;
 }
 
-li:hover {
-  background: yellow;
-}
-
 .x,
 .o {
   background: white;
   cursor: default;
 }
 
-.x:hover,
-.o:hover {
-  background: white;
-}
 
 .x:after,
 .o:after {
