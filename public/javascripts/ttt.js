@@ -32,17 +32,13 @@
 
     _.each(this.players, function(mark){
       win = _.any([0, 1, 2], function(x){
-
         winningRow = _.all([0, 1, 2], function(y){
           that.posMarkedBy([x,y], mark);
         });
-
         winningCol =  _.all([0, 1, 2], function(y){
           that.posMarkedBy([x,y], mark);
         });
-
         return (winningRow || winningCol);
-    
       })
       winner = win ? mark : false;
     })
@@ -67,6 +63,14 @@
       this.switchPlayers();
       this.play();
     }
+  }
+
+  Game.prototype.makeMove = function(pos) {
+    if (this.empty(pos)) { 
+      this.placeMark(pos) 
+      this.switchPlayers(); 
+      return true;
+    } else { return false };
   }
 
   Game.prototype.placeMark = function(pos){

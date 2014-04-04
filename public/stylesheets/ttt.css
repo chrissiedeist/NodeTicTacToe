@@ -1,1 +1,26 @@
-.row { float: left }
+div#ttt-board{
+  width: 430px;
+  margin:0 auto;
+}
+
+.row {
+  float: left;
+}
+.cell{
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: red;
+  line-height: 120px;
+  text-align: center;
+  color: black;
+  margin:10px;
+}
+
+.x { 
+  background-color: blue;
+}
+.o {
+  background-color: white;
+}
+
