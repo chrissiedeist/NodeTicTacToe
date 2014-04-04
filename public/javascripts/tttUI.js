@@ -15,7 +15,7 @@
     // install a handler on the `li` elements inside the board.
     var that = this;
     this.$el.on('click', 'li', function (event) {
-      ui.makeMove($(this));
+//      ui.makeMove($(this));
 
       var data_pos = $(this).attr('data-pos');
       that.socket.emit("move", { pos: data_pos });
