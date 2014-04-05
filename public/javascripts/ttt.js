@@ -24,6 +24,7 @@
         }
       }) 
     }) 
+    return winner;
   }
 
   Game.prototype.checkRowsAndCols = function(){
@@ -33,14 +34,14 @@
     _.each(this.players, function(mark){
       win = _.any([0, 1, 2], function(x){
         winningRow = _.all([0, 1, 2], function(y){
-          that.posMarkedBy([x,y], mark);
+          return that.posMarkedBy([x,y], mark);
         });
-        winningCol =  _.all([0, 1, 2], function(y){
-          that.posMarkedBy([x,y], mark);
+        winningCol = _.all([0, 1, 2], function(y){
+          return that.posMarkedBy([y,x], mark);
         });
         return (winningRow || winningCol);
       })
-      winner = win ? mark : false;
+      win ? winner = mark : false;
     })
     return winner;
   }
@@ -48,12 +49,12 @@
   Game.prototype.threeAcross = function(positions, player){
     var that = this;
     return _.all(positions, function(pos){
-      that.posMarkedBy(pos, player);
+      return that.posMarkedBy(pos, player);
     }) 
   }
 
   Game.prototype.isWon = function() {
-    return this.checkDiagonals() || this.checkRowsAndCols;
+    return this.checkDiagonals() || this.checkRowsAndCols();
   }
 
   Game.prototype.play = function() {
@@ -92,7 +93,7 @@
     _.times(3, function(row) {
       var arr = [];
       _.times(3, function(col) {
-        arr.push([null]);
+        arr.push(null);
       })
       board.push(arr);
     }) 
@@ -100,7 +101,7 @@
   }
 
   Game.prototype.switchPlayers = function() {
-    return ((this.player = "x") ? "o" : "x")
+    this.player = ((this.player === "x") ? "o" : "x")
   }
 
 

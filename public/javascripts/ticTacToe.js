@@ -1,7 +1,7 @@
 (function (root) {
   var TTT = root.TTT = (root.TTT || {});
 
-  var Game = TTT.Game = function TT() {
+  var Game = TTT.Game = function () {
     this.player = Game.marks[0];
     this.board = this.makeBoard();
   }
@@ -141,4 +141,7 @@
 
     return over;
   }
+  var game = new Game();
+  game.makeBoard();
+  
 })(this);

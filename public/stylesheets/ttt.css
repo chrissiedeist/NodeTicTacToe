@@ -1,63 +1,7 @@
-
-.clicked {
-  background-color: yellow;
+.messages {
+  clear:both;
+  padding:20px;
 }
-.centered {
-  text-align: center;
-}
-dy, ul, li, h1 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-ul {
-  list-style: none;
-}
-
-.group:after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-body {
-  color: black;
-  background: white;
-  font-family: sans-serif;
-}
-
-h1 {
-  text-align: center;
-  font-weight: bold;
-  font-size: 60px;
-  margin: 30px;
-}
-
-ul {
-  margin: 30px auto;
-  width: 300px;
-  border: 5px solid black;
-}
-
-li {
-  float: left;
-  width: 90px;
-  height: 90px;
-  border: 5px solid black;
-  background: gray;
-  cursor: pointer;
-}
-
-.x,
-.o {
-  background: white;
-  cursor: default;
-}
-
-
 .x:after,
 .o:after {
   display: block;
@@ -76,17 +20,38 @@ li {
   content: "o";
 }
 
-.over {
-  color: red;
+
+.centered {
+  text-align: center;
 }
 
-.over > li {
-  cursor: default;
-  background: white;
+cell.over { 
+  
+}
+div#ttt-board{
+  width: 330px;
+  margin:0 auto;
 }
 
-.winner-x > .x,
-.winner-o > .o {
-  background: blue;
-  color: white;
+.row {
+  float: left;
 }
+.cell{
+  float: left;
+  width: 90px;
+  height: 90px;
+  background: red;
+  line-height: 100px;
+  text-align: center;
+  color: black;
+  margin:10px;
+}
+
+.x .won { 
+  background-color: blue;
+  content: 'x';
+}
+.o .won{
+  background-color: green;
+}
+
