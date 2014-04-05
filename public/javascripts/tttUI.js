@@ -16,6 +16,7 @@
     var that = this;
     this.$el.on('click', 'li', function (event) {
 
+      $(this).addClass("clicked");
       var data_pos = $(this).attr('data-pos');
       that.socket.emit("move", { pos: data_pos });
     });
@@ -35,6 +36,7 @@
     $('#player').html("Player " + player + ", your move!");
     if (this.game.move(pos)) {
       $square.addClass(player);
+      $square.removeClass("clicked");
 
       var player = this.game.player;
       $('#player').html("Player " + player + ", your move!");
@@ -79,10 +81,14 @@
     console.log(game);
     var UI = new TTT.UI(game, $el, socket);
     UI.play();
+  
     socket.on('move', function(data){
 
         $square = $("li[data-pos='" + data.pos + "'");
         UI.makeMove($square);
+    });
+    socket.on('connection', function(data){
+      alert('Wait for another player to access this site, then make your first move!'); 
     });
 
   })

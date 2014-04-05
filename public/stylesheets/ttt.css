@@ -1,4 +1,7 @@
 
+.clicked {
+  background-color: yellow;
+}
 .centered {
   text-align: center;
 }
