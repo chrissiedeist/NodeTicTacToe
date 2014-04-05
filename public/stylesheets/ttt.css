@@ -1,3 +1,29 @@
+.x:after,
+.o:after {
+  display: block;
+  width: 100%;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 80px;
+}
+
+.x:after {
+  content: "x";
+}
+
+.o:after {
+  content: "o";
+}
+
+
+.centered {
+  text-align: center;
+}
+
+cell.over { 
+  
+}
 div#ttt-board{
   width: 430px;
   margin:0 auto;
@@ -17,10 +43,11 @@ div#ttt-board{
   margin:10px;
 }
 
-.x { 
+.x .won { 
   background-color: blue;
+  content: 'x';
 }
-.o {
-  background-color: white;
+.o .won{
+  background-color: green;
 }
 

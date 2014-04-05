@@ -101,7 +101,7 @@
   }
 
   Game.prototype.switchPlayers = function() {
-    return ((this.player = "x") ? "o" : "x")
+    this.player = ((this.player === "x") ? "o" : "x")
   }
 
 

@@ -42,6 +42,8 @@
 
       if(this.game.isWon()) {
         alert(this.game.player + " is the winner!"); 
+        $('cell').addClass('over');
+        $('div').off("click")
       }
     }
 
