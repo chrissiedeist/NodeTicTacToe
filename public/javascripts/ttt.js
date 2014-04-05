@@ -92,7 +92,7 @@
     _.times(3, function(row) {
       var arr = [];
       _.times(3, function(col) {
-        arr.push([null]);
+        arr.push(null);
       })
       board.push(arr);
     }) 
