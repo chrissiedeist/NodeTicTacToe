@@ -20,7 +20,7 @@
     _.each(this.players, function(mark) {
       _.each(diagonalWins, function(positions) {
         if(that.threeAcross(positions, mark)){
-          winner = mark; 
+          winner = mark;
         }
       }) 
     }) 
@@ -84,7 +84,7 @@
   }
 
   Game.prototype.empty = function(pos){
-    this.board[pos[0]][pos[1]] === null; 
+    return this.board[pos[0]][pos[1]] === null; 
   }
 
   Game.prototype.setUpBoard = function(){
