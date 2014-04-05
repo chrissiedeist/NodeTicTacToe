@@ -24,6 +24,7 @@
         }
       }) 
     }) 
+    return winner;
   }
 
   Game.prototype.checkRowsAndCols = function(){
@@ -48,12 +49,12 @@
   Game.prototype.threeAcross = function(positions, player){
     var that = this;
     return _.all(positions, function(pos){
-      that.posMarkedBy(pos, player);
+      return that.posMarkedBy(pos, player);
     }) 
   }
 
   Game.prototype.isWon = function() {
-    return this.checkDiagonals() || this.checkRowsAndCols;
+    return this.checkDiagonals() || this.checkRowsAndCols();
   }
 
   Game.prototype.play = function() {
