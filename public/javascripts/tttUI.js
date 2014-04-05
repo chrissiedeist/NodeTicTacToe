@@ -25,12 +25,14 @@
 
   UI.prototype.bindEventHandlers = function() {
     var ui = this;
-    $('#ttt-board').on('click', 'div.cell', function(event) {
-      var $selectedSquare = $(this)
 
+    function alertMove(event){
+      var $selectedSquare = $(this)
       var data_pos = $(this).attr('data-pos');
       ui.socket.emit("move", { pos: data_pos });
-    }) 
+    }
+
+    $('#ttt-board').on('click', 'div.cell', alertMove);
   }
 
   UI.prototype.makeMove = function($square){
@@ -43,7 +45,7 @@
       if(this.game.isWon()) {
         alert(this.game.player + " is the winner!"); 
         $('cell').addClass('over');
-        $('div').off("click")
+        $('#ttt-board').off('click', 'div.cell');
       }
     }
 
