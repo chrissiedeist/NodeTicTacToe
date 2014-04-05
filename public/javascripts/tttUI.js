@@ -38,12 +38,14 @@
   UI.prototype.makeMove = function($square){
     var pos = $square.attr('data-pos');
     pos = [parseInt(pos[0]), parseInt(pos[2])]
-
+    
+    var lastPlayer = this.game.player === "x" ? "x" : "o";
     if(this.game.makeMove(pos)) {
+      $('.messages').html("Player " + lastPlayer + ", your move!");  
       $square.addClass(this.game.player);   
 
       if(this.game.isWon()) {
-        alert(this.game.player + " is the winner!"); 
+        $('.messages').html("Player " + this.game.player + " is the winner!");  
         $('cell').addClass('over');
         $('#ttt-board').off('click', 'div.cell');
       }
@@ -56,6 +58,7 @@
     
     var game = new TTT.Game();
     var UI = new TTT.UI(game, socket);
+
     socket.on('move', function(data){
       $square = $("div[data-pos='" + data.pos + "'");
       UI.makeMove($square);
