@@ -48,9 +48,9 @@
         $('#ttt-board').off('click', 'div.cell');
       }
     }
-
-     
   }
+
+
 
   $(document).ready(function(){
     
@@ -60,6 +60,9 @@
       $square = $("div[data-pos='" + data.pos + "'");
       UI.makeMove($square);
     }); 
+    socket.on('entrance', function(data) {
+      $('.messages').html(data.message);  
+    });
   })
 
 

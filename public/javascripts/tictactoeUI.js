@@ -76,7 +76,6 @@
   $(document).ready(function() {
     var game = new TTT.Game();
     var $el = $("#ttt-board");
-    console.log(game);
     var UI = new TTT.UI(game, $el, socket);
     UI.play();
     socket.on('move', function(data){

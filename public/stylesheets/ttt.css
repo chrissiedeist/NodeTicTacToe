@@ -1,3 +1,6 @@
+.messages {
+  clear:both;
+}
 .x:after,
 .o:after {
   display: block;
