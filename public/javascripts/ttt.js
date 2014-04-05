@@ -34,14 +34,14 @@
     _.each(this.players, function(mark){
       win = _.any([0, 1, 2], function(x){
         winningRow = _.all([0, 1, 2], function(y){
-          that.posMarkedBy([x,y], mark);
+          return that.posMarkedBy([x,y], mark);
         });
-        winningCol =  _.all([0, 1, 2], function(y){
-          that.posMarkedBy([x,y], mark);
+        winningCol = _.all([0, 1, 2], function(y){
+          return that.posMarkedBy([y,x], mark);
         });
         return (winningRow || winningCol);
       })
-      winner = win ? mark : false;
+      win ? winner = mark : false;
     })
     return winner;
   }
