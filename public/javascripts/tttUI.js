@@ -49,6 +49,9 @@
         var cellClass = (this.game.isWon()) ? this.game.player + "-won" : "tie"; 
         $('.cell').addClass(cellClass);
         $('#ttt-board').off('click', 'div.cell');
+        $('#ttt-board').on('click', function(event){
+          alert('The game has ended! Refresh both browsers to begin play again.'); 
+        })
 
         var winMessage = "Player " + this.game.player + " is the winner!";
         var tieMessage = "It's a tie!";
@@ -67,13 +70,15 @@
     
     var game = new TTT.Game();
     var UI = new TTT.UI(game, socket);
+    var message = "Welcome to NodeTicTacToe! This game is built on a Node.js server to allow for asynchronous I/O between players in different locations. To test it out, navigate to this page in a second browser window. Once both windows are open you may begin play from either window. To begin a new game, refresh the page in both browsers."
 
+    alert(message);
     socket.on('move', function(data){
       $square = $("div[data-pos='" + data.pos + "'");
       UI.makeMove($square);
     }); 
     socket.on('entrance', function(data) {
-      $('.messages').html(data.message);  
+      $('.messages').html("Click any square to make your move!");  
     });
   })
 
