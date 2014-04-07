@@ -70,9 +70,9 @@
     
     var game = new TTT.Game();
     var UI = new TTT.UI(game, socket);
-    var message = "Welcome to NodeTicTacToe! This game is built on a Node.js server to allow for asynchronous I/O between players in different locations. To test it out, navigate to this page in a second browser window. Once both windows are open you may begin play from either window. To begin a new game, refresh the page in both browsers."
-
+    var message = "Welcome to NodeTicTacToe! This game is built on a Node.js server to allow for asynchronous I/O between players in different locations. To test it out, navigate to this page in a second browser window. Once both windows are open you may begin play from either window. It may take a moment to establish the connection; once the game is ready in both browsers, the message below the board will let you know you're ready to play!"
     alert(message);
+    $('.messages').html("Please wait one moment, page loading...");
     socket.on('move', function(data){
       $square = $("div[data-pos='" + data.pos + "'");
       UI.makeMove($square);
