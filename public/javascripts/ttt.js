@@ -11,6 +11,7 @@
   Game.prototype.checkDiagonals = function(){
     var that = this;
     var winner = false;
+    var winningRow;
 
     var diagonalWins = [
       [[0,0],[1,1],[2,2]],
@@ -20,6 +21,7 @@
     _.each(this.players, function(mark) {
       _.each(diagonalWins, function(positions) {
         if(that.threeAcross(positions, mark)){
+
           winner = mark;
         }
       }) 

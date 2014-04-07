@@ -46,7 +46,8 @@
 
       if(this.game.isWon() || this.game.over()) {
       
-        $('.cell').addClass('over');
+        var cellClass = (this.game.isWon()) ? this.game.player + "-won" : "tie"; 
+        $('.cell').addClass(cellClass);
         $('#ttt-board').off('click', 'div.cell');
 
         var winMessage = "Player " + this.game.player + " is the winner!";
