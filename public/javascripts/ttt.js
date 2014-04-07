@@ -74,6 +74,15 @@
     } else { return false };
   }
 
+  Game.prototype.over = function(pos){
+    var that = this;
+    return _.all([0,1,2], function(row){
+      return _.all([0,1,2], function(col) {
+        return that.board[row][col] !== null;      
+      })
+    }) 
+  }
+
   Game.prototype.placeMark = function(pos){
     if (this.empty(pos)){
       this.board[pos[0]][pos[1]] = this.player; 

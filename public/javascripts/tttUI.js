@@ -44,11 +44,19 @@
       $('.messages').html("Player " + lastPlayer + ", your move!");  
       $square.addClass(this.game.player);   
 
-      if(this.game.isWon()) {
-        $('.messages').html("Player " + this.game.player + " is the winner!");  
-        $('cell').addClass('over');
+      if(this.game.isWon() || this.game.over()) {
+      
+        $('.cell').addClass('over');
         $('#ttt-board').off('click', 'div.cell');
+
+        var winMessage = "Player " + this.game.player + " is the winner!";
+        var tieMessage = "It's a tie!";
+
+        var message = (this.game.isWon()) ? winMessage : tieMessage;
+        $('.messages').html(message);
+
       }
+      
     }
   }
 
