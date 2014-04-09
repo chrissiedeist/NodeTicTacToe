@@ -16,7 +16,7 @@
     _.each(this.board, function(row, i) {
         var $row = $('<div class="row"></div>');
       _.each(row, function(cell, j){
-        $row.append('<div class="cell" data-pos=\"' + i + '_' + j + '\"></div>');
+        $row.append('<div class="cell" data-pos=\"' + i + '_' + j + '\">');
       }) 
 
       var $div = $("#ttt-board").append($row);
@@ -57,7 +57,8 @@
         var tieMessage = "It's a tie!";
 
         var message = (this.game.isWon()) ? winMessage : tieMessage;
-        $('.messages').html(message);
+        $('.messages').html("");
+        alert(message);
 
       }
       
@@ -74,7 +75,7 @@
     alert(message);
     $('.messages').html("Please wait while the connection between players is established.");
     socket.on('move', function(data){
-      $square = $("div[data-pos='" + data.pos + "'");
+      $square = $("div[data-pos='" + data.pos + "']");
       UI.makeMove($square);
     }); 
     socket.on('entrance', function(data) {
