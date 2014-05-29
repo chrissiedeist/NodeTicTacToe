@@ -82,6 +82,9 @@
       alert(data.message);
       if(data.ready) { $('.messages').html("Click any square to begin!"); }
     });
+    socket.on('move_attempt', function(data) {
+      alert(data.message); 
+    });
   })
 
 
